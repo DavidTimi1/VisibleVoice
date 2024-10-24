@@ -1,5 +1,5 @@
 import './app.css';
-import '../pallete.css';
+import './ui/pallete.css';
 
 
 import {useEffect, useRef, useState} from 'react';
@@ -74,7 +74,7 @@ export default function TechFestApp() {
 
     return (
         <ErrorHandler.Provider value={{add: addError}}>
-            <div className="main-app mega-max" onScroll={handleScroll} style={{overflow: "hidden auto"}} >
+            <div className="main-app app mega-max" onScroll={handleScroll} style={{overflow: "hidden auto"}} >
                 <Navbar scroll={scroll} goTo={goTo} />
                 <Home openPopUp={ () => setPopUp(true) } ref={homeRef} />
                 <div className='fw pad' style={{paddingTop: "5px"}}>
