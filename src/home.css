@@ -1,0 +1,17 @@
+.hero-img {
+    top: 0px;
+    left: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    &::after {
+        content: '';
+        background-color: #000000cc;
+        width: inherit;
+        height: inherit;
+        top: 0px;
+        left: 0px;
+        position: absolute;
+    }
+}

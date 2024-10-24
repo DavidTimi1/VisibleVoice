@@ -1,0 +1,101 @@
+
+.proj-list {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+}
+
+.proj-item {
+    background-color: var(--sec-col);
+    border-radius: .5em;
+    padding: 5px;
+    margin: 10px 0;
+
+    .content {
+        aspect-ratio: 1/1;
+        background-size: cover;
+        border-radius: .5em;
+
+
+        > *::before, > *::after {
+            content: '';
+            aspect-ratio: 1/1;
+            background-color: transparent;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            position: absolute;
+            width: 30px;
+            transition: all .3s ease;
+        }
+        
+        > *::before {
+            border-top-color: white;
+            border-left-color: white;
+            left: 10px;
+            top: 10px;
+            transform: translate(20px, 20px);
+        }
+
+        > *::after {
+            border-bottom-color: white;
+            border-right-color: white;
+            bottom: 10px;
+            right: 10px;
+            transform: translate(-20px, -20px);
+        }
+        
+        > * {
+            background-color: #000000aa;
+            border-radius: inherit;
+            opacity: 0;
+            justify-content: center;
+
+            &:hover {
+                opacity: 1;
+    
+                &::before, &::after {
+                    transform: translate(0,0);
+                }
+            }
+        }
+
+    }
+}
+
+.proj-tools > .flex {
+    overflow: hidden;
+
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        height: line-height;
+    }
+}
+
+.proj-tools code {
+    background-color: var(--sec-col2);
+    border-radius: 6px;
+    color: grey;
+    font-size: 70%;
+    margin: 2px;
+    padding: 2px 3px;
+}
+
+@media screen and (max-width: 429px){
+    .proj-item {
+        width: 90%;
+    }
+}
+
+
+@media screen and (min-width: 430px) and (max-width: 767px){
+    .proj-item {
+        width: 45%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .proj-item {
+        width: 30%;
+    }
+}
