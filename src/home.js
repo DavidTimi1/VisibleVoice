@@ -1,4 +1,4 @@
-import { PopUpApp } from '../webEx/popup';
+import { PopUpApp } from './webEx/popup';
 import './home.css';
 import img1 from './imgs/img1.jpg';
 

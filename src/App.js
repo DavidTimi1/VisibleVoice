@@ -10,10 +10,10 @@ import { Home } from './home';
 // import { Contact } from './contact';
 import { Features, Services } from './services';
 import { Footer } from './footer';
-import { PopUpApp } from '../webEx/popup';
+import { PopUpApp } from './webEx/popup';
 import { ASLPIP } from './more';
 import { ErrorHandler } from './contexts';
-import { on } from '../helpers';
+import { on } from './ui/helpers';
 
 
 const Views = ['Home', 'About Us', 'Services', `Contact Us`];

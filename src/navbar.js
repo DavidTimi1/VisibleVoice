@@ -1,17 +1,17 @@
 import './navbar.css';
-import { IconBut } from './buttons.js';
+import { IconBut } from './ui/buttons';
 import { useEffect, useState, useRef } from 'react';
 
-import { transitionEnd, $, int, once } from '../helpers.js';
+import { transitionEnd, $, int, once } from './ui/helpers.js';
 import { ProjectName } from './app.js';
 
 
-export default function Navbar({scroll, goTo}){
+export default function Navbar({ scroll, goTo }) {
     const [showMenu, setShow] = useState(false);
 
 
     return (
-        <div className={"navbar fw" + (scroll? " scroll" : "") }>
+        <div className={"navbar fw" + (scroll ? " scroll" : "")}>
             <div className='fw pad'>
                 <div className="lap-nav nav fw flex mid-align">
                     <div className="hero-title fh"> {ProjectName} </div>
@@ -27,35 +27,35 @@ export default function Navbar({scroll, goTo}){
                 <div className="mobile-nav nav fw flex mid-align">
                     <div className="hero-title fh"> {ProjectName} </div>
                     <div>
-                        { showMenu ? 
-                            <IconBut className="fa-solid fa-xmark" hover="Close" onClick={()=> toggleMenu(false)} sr="close menu"/>
+                        {showMenu ?
+                            <IconBut className="fa-solid fa-xmark" hover="Close" onClick={() => toggleMenu(false)} sr="close menu" />
                             :
-                            <IconBut className="fa-solid fa-bars" hover="Menu" onClick={()=> toggleMenu(true)} sr="open menu"/>
+                            <IconBut className="fa-solid fa-bars" hover="Menu" onClick={() => toggleMenu(true)} sr="open menu" />
                         }
                     </div>
                 </div>
 
-                <Menu show={showMenu} goTo={goTo} closeMenu={()=> toggleMenu(false)} />
+                <Menu show={showMenu} goTo={goTo} closeMenu={() => toggleMenu(false)} />
             </div>
         </div>
     )
-    
-    function toggleMenu(bool){
+
+    function toggleMenu(bool) {
         setShow(bool);
     }
 
 }
 
 
-function NavLink({nav, url, children}){
+function NavLink({ nav, url, children }) {
 
     return (
-        <a className="nav-item" onClick={ handleClick } href={url}>
+        <a className="nav-item" onClick={handleClick} href={url}>
             {children}
         </a>
     )
 
-    function handleClick(e){
+    function handleClick(e) {
         e.preventDefault();
 
         nav(url)
@@ -63,13 +63,13 @@ function NavLink({nav, url, children}){
 }
 
 
-function Menu({show, goTo, closeMenu}){
+function Menu({ show, goTo, closeMenu }) {
     const myRef = useRef(null);
 
     useEffect(() => {
         let t_id = show && setTimeout(() => myRef.current.classList.remove("close"));
 
-        return ()=> {
+        return () => {
             t_id && clearTimeout(t_id);
         }
     }, [show])
@@ -89,7 +89,7 @@ function Menu({show, goTo, closeMenu}){
         </div>
     )
 
-    function close(){
+    function close() {
         once(transitionEnd, myRef.current, closeMenu);
         myRef.current.classList.add("close");
     }

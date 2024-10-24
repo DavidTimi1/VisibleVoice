@@ -1,13 +1,12 @@
 
-import ttsImg from '../techfest/imgs/tts-img.png';
-import slImg from '../techfest/imgs/images.png';
+import ttsImg from '../imgs/tts-img.png';
+import slImg from '../imgs/images.png';
 
 import { useEffect, useRef, useState } from "react";
-import { Button } from "../techfest/buttons";
-import { IconBut } from "../learnxs/buttons";
-import { on } from "../helpers";
-import { ASL } from "../techfest/app";
-import { BgImg } from "../techfest/more";
+import { Button, IconBut } from "../ui/buttons";
+
+import { ASL } from "../app";
+import { BgImg } from "../more";
 
 // export const browserAPI = chrome || browser;
 export const supportTTS = window.speechSynthesis;

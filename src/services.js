@@ -9,7 +9,7 @@ import supportImg from './imgs/support-icon-img.png';
 
 import { forwardRef, useEffect, useRef } from "react";
 import { FeatureEnabled, BgImg, observer } from "./more";
-import { on } from '../helpers';
+import { on } from './ui/helpers';
 
 
 

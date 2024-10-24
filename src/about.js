@@ -1,6 +1,6 @@
 import { forwardRef, useEffect } from "react";
 import { FeatureEnabled, observer } from "./more";
-import { on } from "../helpers";
+import { on } from "./ui/helpers";
 
 
 

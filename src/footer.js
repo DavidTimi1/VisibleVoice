@@ -2,34 +2,34 @@ import './footer.css';
 
 import { useEffect, useState, useRef, forwardRef } from "react";
 
-import { Button } from "./buttons";
+import { Button } from "./ui/buttons";
 import { ProjectName } from './app';
 import { observer } from './more';
-import { on } from '../helpers';
+import { on } from './ui/helpers';
 
 
 
 export const Footer = forwardRef((props, ref) => {
-    
+
     useEffect(() => {
         const el = ref.current;
         observer.observe(el);
-        
-        on('scrolledIntoView', el, ()=> {
+
+        on('scrolledIntoView', el, () => {
             el.classList.add("untrans");
         })
 
-        return()=> observer.unobserve(el)
+        return () => observer.unobserve(el)
     }, [ref]);
 
     return (
         <div className="fw foot pad trans" ref={ref}>
-            <div className="flex fw mid-align" style={{padding: "75px 10px 10px 10px", justifyContent: "space-between"}}>
+            <div className="flex fw mid-align" style={{ padding: "75px 10px 10px 10px", justifyContent: "space-between" }}>
                 <div className="flex-col mid-align">
                     <div className="flex fw mid-align">
                         {/* project logo */}
-                        <div style={{aspectRatio: "1/1", height: "50px"}}>
-                            
+                        <div style={{ aspectRatio: "1/1", height: "50px" }}>
+
                         </div>
                         <div className="hero-title fh"> {ProjectName} </div>
                     </div>
@@ -38,10 +38,10 @@ export const Footer = forwardRef((props, ref) => {
 
                 <div className='flex-col'>
                     <div className="sub-txt">
-                        To help imporve our services <br></br> 
+                        To help imporve our services <br></br>
                         We would love your feedback
                     </div>
-                    
+
                     <FeedbackForm />
                 </div>
             </div>
@@ -51,7 +51,7 @@ export const Footer = forwardRef((props, ref) => {
 })
 
 
-function FeedbackForm(){
+function FeedbackForm() {
     const [state, setState] = useState();
     const formRef = useRef(null);
     const sent = state?.status;
@@ -60,8 +60,8 @@ function FeedbackForm(){
         <form method="post" action="/feedback" className="feedform br-1 up" ref={formRef} onSubmit={handleSubmit}>
             {
                 state !== undefined &&
-                <div className={`${sent? '' : "err"}`}>
-                    <div style={{padding: "20px"}}>
+                <div className={`${sent ? '' : "err"}`}>
+                    <div style={{ padding: "20px" }}>
                         {state?.data}
                     </div>
                 </div>
@@ -86,12 +86,12 @@ function FeedbackForm(){
                 <textarea name="feedback" placeholder="Type your message ..." className="form-control" id="inputFeedback"></textarea>
             </div>
             <label className="fw flex mid-align">
-                <input type="checkbox" name="subscribe" style={{padding: "10px"}} />
-                <div style={{padding: "10px"}}>
+                <input type="checkbox" name="subscribe" style={{ padding: "10px" }} />
+                <div style={{ padding: "10px" }}>
                     Subscribe to receiving updates on our progress
                 </div>
             </label>
-            <div className="margin flex" style={{justifyContent: 'right'}}>
+            <div className="margin flex" style={{ justifyContent: 'right' }}>
                 <Button>
                     Send Feedback
                 </Button>
@@ -99,8 +99,8 @@ function FeedbackForm(){
         </form>
     )
 
-    function handleSubmit(e){
-        const {target} = e;
+    function handleSubmit(e) {
+        const { target } = e;
         e.preventDefault();
 
         const fd = new FormData(target);
@@ -108,44 +108,44 @@ function FeedbackForm(){
         fetch("/feedback", {
             method: "post",
             body: fd
-        }).then( res => res.json )
-        .then( json => {
-            clearInputs();
-            setState({
-                status: true,
-                data: json
+        }).then(res => res.json)
+            .then(json => {
+                clearInputs();
+                setState({
+                    status: true,
+                    data: json
+                })
             })
-        })
-        .catch(err => {
-            setState({
-                status: false,
-                data: err.details ?? err.reason
+            .catch(err => {
+                setState({
+                    status: false,
+                    data: err.details ?? err.reason
+                })
             })
-        })
     }
 
 
-    function clearInputs(){
+    function clearInputs() {
         const all = ["message", "subject"];
 
-        all.forEach( elem => {
+        all.forEach(elem => {
             formRef.current[elem].value = '';
         })
     }
 }
 
 
-function Socials(){
+function Socials() {
 
     return (
         <div></div>
     )
 }
 
-function  DevCredits(){
+function DevCredits() {
 
     return (
-        <div className='mini-txt margin cred' style={{padding: "10px"}}>
+        <div className='mini-txt margin cred' style={{ padding: "10px" }}>
             <span>
                 Developed by <a href={githubLink} rel="noreferrer" target='_blank'> TimiDev </a> |
             </span>
