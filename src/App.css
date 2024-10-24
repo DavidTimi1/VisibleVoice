@@ -1,0 +1,288 @@
+:root {
+	--main-bg: #eee;
+	--sec-col: #ccc;
+	--sec2-col: #aaa;
+	--prim-text: black;
+	--sec-text: white;
+
+  background-color: var(--main-bg);
+  color: var(--prim-text);
+  font-size: 20px;
+
+  &.dark-mode {
+    --main-bg: #1b1b1b;
+    --sec-col: #222;
+    --sec-col2: #333;
+    --tert-col: #5ad7ff;
+    --prim-text: white;
+    --sec-text: black;
+  }
+}
+
+.m-txt {
+  font-size: 150%;
+  font-weight: 500;
+}
+
+.sub-txt {
+  font-size: 100%;
+  font-weight: 400;
+}
+
+.mini-txt {
+  font-size: 80%;
+  font-weight: 350;
+  color: grey;
+}
+
+.bg-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.pad {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+#about .flex > * {
+  width: 50%;
+}
+
+.hero-img img {
+  max-height: 70vh;
+}
+
+
+
+.feat-cont {
+  border: 2px solid transparent;
+  border-radius: 1em;
+
+  &:hover {
+    border: 2px dashed grey;
+  }
+  &[data-active = true] {
+    border: 2px dashed yellow;
+  }
+  
+}
+
+.feat-imp {
+  background: linear-gradient(to right, #00000022, black);
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0px;
+  transition: all .3s ease;
+
+  .on {
+    border: 2px solid yellow;
+  }
+}
+
+.feat-cont:hover, [data-active = true] {
+
+  .feat-imp {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  opacity: 0;
+}
+
+.pop {
+  opacity: 0;
+  padding: 10px;
+  transform: translateX(30%);
+  transition: all .3s ease-in-out;
+
+  &.show {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.main-pop {
+  background-color: grey;
+  border-radius: 1em;
+  top: 50%;
+  overflow: hidden;
+  transform: translateY(-50%);
+  transition: all .3s ease-in-out;
+  width: min(600px, 80%);
+}
+
+#p-i-p {
+  aspect-ratio: 1/1;
+  background-color: black;
+  border: 1px solid grey;
+  border-radius: 1em;
+  bottom: 20px;
+  box-shadow: 0 0 5px black;
+  opacity: 1;
+  overflow: hidden;
+  position: fixed;
+  right: 20px;
+  transform-origin: bottom right;
+  transform: scale(1);
+  transition: all .3s ease;
+  width: 300px;
+  z-index: 2;
+
+  &.close {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  .controls {
+    opacity: 0;
+    padding: 10px;
+    left: 0;
+    top: 0;
+    transition: inherit;
+    visibility: hidden;
+  }
+
+  &:hover .controls {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.trans {  
+  .left, .lap-left, .right, .lap-right, .up, .lap-up {
+    opacity: 0;
+    transition: all .5s .2s ease-in-out;
+  }
+
+  .left {
+    transform: translateX(50px);
+  }
+  
+  .right {
+    transform: translateX(-50px);
+  }
+  
+  .up {
+    transform: translateY(50px);
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .pad {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  #about {
+    flex-direction: row !important;
+
+    h3 {
+      text-align: center;
+    }
+    .mission {
+      flex: 0 0 auto;
+      width: 70%;
+    }
+  }
+
+  .flex-col.sdq {
+    flex-direction: row;
+
+    &.flex-rev {
+      flex-direction: row-reverse;
+    }
+
+    .hero-img {
+      margin: 0 20px;
+      padding: 10px;
+    }
+
+    .ter {
+      width: 52.5%;
+      flex-shrink: 0;
+    }
+  }
+
+  
+  .trans {
+    .lap-left {
+      transform: translateX(50px);
+    }
+
+    .lap-right {
+      transform: translateX(-50px);
+    }
+
+    .lap-up {
+      transform: translateY(50px);
+    }
+  }
+
+}
+
+.trans.untrans {
+  .left, .lap-left, .right, .lap-right, .up, .lap-up {
+    transform: unset;
+    opacity: 1;
+  }
+}
+
+video {
+  &[src=""], &:not([src]) {
+    background: linear-gradient(45deg, black, transparent, grey), linear-gradient(135deg, grey, transparent, black);
+  }
+}
+
+
+/* 
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+td {
+  background-color: red;
+  border-radius: 3px;
+  border: 2px solid black;
+} */
+

@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "Inclusion Surf",
+    "version": "1.0",
+    "description": "Assists Users in Accessibility issues",
+    "permissions": [
+        "storage", "activeTab", "scripting"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
