@@ -3,7 +3,7 @@ import { IconBut } from './ui/buttons';
 import { useEffect, useState, useRef } from 'react';
 
 import { transitionEnd, once } from './ui/helpers.js';
-import { ProjectName } from './app';
+import { ProjectName } from './app.js';
 
 
 export default function Navbar({ scroll, goTo }) {
