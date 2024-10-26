@@ -137,7 +137,7 @@ export function PopUpApp({close}){
 
     return (
         <div className="overlay" style={{background: "linear-gradient( to bottom, #00000080, #80808050, #00000080"}}>
-            <div className="main-pop margin" ref={myRef} style={{borderRadius: "1em"}}>
+            <div className="main-pop mx-auto" ref={myRef} style={{borderRadius: "1em"}}>
                 <div className="max" style={{padding: "20px"}}>
                     <First active={active === 0} next={next} />
                     <Second active={active === 1} next={next} />

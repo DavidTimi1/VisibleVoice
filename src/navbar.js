@@ -26,7 +26,7 @@ export default function Navbar({ scroll, goTo }) {
 
                 <div className="mobile-nav nav fw flex mid-align">
                     <div className="hero-title fh"> {ProjectName} </div>
-                    <div>
+                    <div className="nav-icon">
                         {showMenu ?
                             <IconBut className="fa-solid fa-xmark" hover="Close" onClick={() => toggleMenu(false)} sr="close menu" />
                             :

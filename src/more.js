@@ -2,7 +2,7 @@
 import slImg from './imgs/images.png';
 import ttsImg from './imgs/tts-img.png'
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, forwardRef } from "react";
 
 import { readElement, signElement, speechSyn } from './webEx/popup';
 import { IconBut } from './ui/buttons';
@@ -261,3 +261,27 @@ export function ASLPIP({ closeModal, data }) {
 	}
 
 }
+
+
+export const Input = forwardRef((props, ref) => {
+	let { autoFocus, className, label, id, required, type, name, rows } = props;
+    required = required ?? ( label.slice(-1) === '*' );
+    type = type ?? "text"
+
+	if (!rows){
+		return (
+		  <div className="form-floating fw">
+			<input {...{ autoFocus, id, required, type, name, placeholder: label }} className={`form-control br-5 ${className ? className : ''}`} ref={ref}></input>
+			<label htmlFor={id} style={{color: "grey"}}> {label} </label>
+		  </div>
+		)
+	}
+
+	return (
+		<div className="form-floating fw">
+		  <textarea {...{ autoFocus, id, required, name, rows, placeholder: label }} className={`form-control br-5 ${className ? className : ''}`} ref={ref} style={{height: "unset"}}></textarea>
+		  <label htmlFor={id} style={{color: "grey"}}> {label} </label>
+		</div>
+	)
+  
+})

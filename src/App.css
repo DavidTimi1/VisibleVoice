@@ -7,26 +7,16 @@
 
   background-color: var(--main-bg);
   color: var(--prim-text);
-  font-size: 20px;
+  font-size: 16px;
 
-  &.dark-mode {
+  /* &.dark-mode {
     --main-bg: #1b1b1b;
     --sec-col: #222;
     --sec-col2: #333;
     --tert-col: #5ad7ff;
     --prim-text: white;
     --sec-text: black;
-  }
-}
-
-.m-txt {
-  font-size: 150%;
-  font-weight: 500;
-}
-
-.sub-txt {
-  font-size: 100%;
-  font-weight: 400;
+  } */
 }
 
 .mini-txt {
@@ -46,6 +36,12 @@
   padding-right: 15px;
 }
 
+.box {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 50px auto;
+  scroll-margin-top: 100px;
+}
 
 #about .flex > * {
   width: 50%;
@@ -91,6 +87,12 @@
     visibility: visible;
     opacity: 1;
   }
+}
+
+.serv {
+  border: 1px solid var(--sec-col);
+  box-shadow: 0 2px 5px grey;
+  width: clamp(400px, 100%, 45%);
 }
 
 .sr-only {

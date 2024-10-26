@@ -1,12 +1,13 @@
 .foot {
     background-color: black;
+    color: var(--sec-col)
 }
 
 .feedform {
-    background-color: var(--sec-col);
-    box-shadow: 5px 0 10px black;
+    background-color: #555;
+    box-shadow: 5px 5px 10px #222;
     padding: 30px;
-    margin: 30px auto;
+    margin: 10px auto;
 }
 
 

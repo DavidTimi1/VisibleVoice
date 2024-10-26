@@ -1,5 +1,5 @@
 import './App.css';
-import './ui/pallete.css';
+import './ui/palette.css';
 
 
 import {useEffect, useRef, useState} from 'react';
@@ -17,6 +17,7 @@ import { on } from './ui/helpers';
 
 
 const Views = ['Home', 'About Us', 'Services', `Contact Us`];
+export const apiHost =  "https://saasuke.koyeb.app";
 
 
 export const ProjectName = "VisibleVoice";
@@ -74,7 +75,7 @@ export default function TechFestApp() {
 
     return (
         <ErrorHandler.Provider value={{add: addError}}>
-            <div className="main-app app mega-max" onScroll={handleScroll} style={{overflow: "hidden auto"}} >
+            <div className="main-app app" onScroll={handleScroll} style={{overflow: "hidden auto"}} >
                 <Navbar scroll={scroll} goTo={goTo} />
                 <Home openPopUp={ () => setPopUp(true) } ref={homeRef} />
                 <div className='fw pad' style={{paddingTop: "5px"}}>
@@ -135,5 +136,3 @@ export default function TechFestApp() {
         }, 2000);
     }
 }
-
-console.log( document.querySelectorAll(".feat") );

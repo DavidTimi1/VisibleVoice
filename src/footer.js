@@ -3,8 +3,8 @@ import './footer.css';
 import { useEffect, useState, useRef, forwardRef } from "react";
 
 import { Button } from "./ui/buttons";
-import { ProjectName } from './app';
-import { observer } from './more';
+import { apiHost, ProjectName } from './app';
+import { Input, observer } from './more';
 import { on } from './ui/helpers';
 
 
@@ -37,8 +37,8 @@ export const Footer = forwardRef((props, ref) => {
                 </div>
 
                 <div className='flex-col'>
-                    <div className="sub-txt">
-                        To help imporve our services <br></br>
+                    <div className="fs-5 fw-500">
+                        To help improve our services, <br></br>
                         We would love your feedback
                     </div>
 
@@ -57,44 +57,36 @@ function FeedbackForm() {
     const sent = state?.status;
 
     return (
-        <form method="post" action="/feedback" className="feedform br-1 up" ref={formRef} onSubmit={handleSubmit}>
-            {
-                state !== undefined &&
-                <div className={`${sent ? '' : "err"}`}>
-                    <div style={{ padding: "20px" }}>
-                        {state?.data}
-                    </div>
-                </div>
-            }
+        <form method="post" action={`${apiHost}/feedback/visualvoice`} className="feedform fw br-1 up" ref={formRef} onSubmit={handleSubmit}>
+            <div className='fw flex-col gap-2'>
 
-            <div className="form-row">
-                <div className="form-group col-md-6">
-                    <label htmlFor="inputName">Name</label>
-                    <input name="name" type="text" placeholder="Enter your name" id="inputName"></input>
+                <div className={`alert ${state !== undefined? sent ? "alert-success" : "alert-danger" : 'disappear'}`}>
+                {
+                    state && state?.data
+                }
                 </div>
-                <div className="form-group col-md-6">
-                    <label htmlFor="inputEmail">Email</label>
-                    <input name="email" type="email" placeholder="Enter your email" id="inputEmail"></input>
+
+                <div className="flex md-flex-col fw gap-2">
+                    <Input label="Name*" id="inputName" />
+                    <Input label="Email*" type="email" id="inputEmail" />
                 </div>
-            </div>
-            <div className="form-group fw">
-                <label htmlFor="inputSubject">Subject</label>
-                <input type="text" name="subject" className="form-control" id="inputSubject" placeholder="Subject" />
-            </div>
-            <div className="form-group fw">
-                <label htmlFor="inputFeedback">Message</label>
-                <textarea name="feedback" placeholder="Type your message ..." className="form-control" id="inputFeedback"></textarea>
-            </div>
-            <label className="fw flex mid-align">
-                <input type="checkbox" name="subscribe" style={{ padding: "10px" }} />
-                <div style={{ padding: "10px" }}>
-                    Subscribe to receiving updates on our progress
+                
+                <Input label="Subject*" id="inputSubject" />
+                
+                <Input label="Message*" rows={3} id="inputMessage" />
+                
+                <label className="fw flex mid-align gap-2">
+                    <input type="checkbox" name="subscribe" style={{ padding: "10px" }} />
+                    <div>
+                        Subscribe to receiving updates on our progress
+                    </div>
+                </label>
+                <div className="mx-auto flex" style={{ justifyContent: 'right' }}>
+                    <Button>
+                        Send Feedback
+                    </Button>
                 </div>
-            </label>
-            <div className="margin flex" style={{ justifyContent: 'right' }}>
-                <Button>
-                    Send Feedback
-                </Button>
+
             </div>
         </form>
     )
@@ -105,7 +97,7 @@ function FeedbackForm() {
 
         const fd = new FormData(target);
 
-        fetch("/feedback", {
+        fetch(`${apiHost}/feedback/visualvoice`, {
             method: "post",
             body: fd
         }).then(res => res.json)
