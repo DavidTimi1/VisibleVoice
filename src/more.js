@@ -265,23 +265,23 @@ export function ASLPIP({ closeModal, data }) {
 
 export const Input = forwardRef((props, ref) => {
 	let { autoFocus, className, label, id, required, type, name, rows } = props;
-    required = required ?? ( label.slice(-1) === '*' );
-    type = type ?? "text"
+	required = required ?? (label.slice(-1) === '*');
+	type = type ?? "text"
 
-	if (!rows){
+	if (!rows) {
 		return (
-		  <div className="form-floating fw">
-			<input {...{ autoFocus, id, required, type, name, placeholder: label }} className={`form-control br-5 ${className ? className : ''}`} ref={ref}></input>
-			<label htmlFor={id} style={{color: "grey"}}> {label} </label>
-		  </div>
+			<div className="form-floating fw">
+				<input {...{ autoFocus, id, required, type, name, placeholder: label }} className={`form-control br-5 ${className ? className : ''}`} ref={ref}></input>
+				<label htmlFor={id} style={{ color: "grey" }}> {label} </label>
+			</div>
 		)
 	}
 
 	return (
 		<div className="form-floating fw">
-		  <textarea {...{ autoFocus, id, required, name, rows, placeholder: label }} className={`form-control br-5 ${className ? className : ''}`} ref={ref} style={{height: "unset"}}></textarea>
-		  <label htmlFor={id} style={{color: "grey"}}> {label} </label>
+			<textarea {...{ autoFocus, id, required, name, rows, placeholder: label }} className={`form-control br-5 ${className ? className : ''}`} ref={ref} style={{ height: "unset" }}></textarea>
+			<label htmlFor={id} style={{ color: "grey" }}> {label} </label>
 		</div>
 	)
-  
+
 })
