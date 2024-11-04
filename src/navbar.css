@@ -98,6 +98,10 @@
     top: 100%;
     width: 100vw;
 
+    .scroll & {
+        background-color: inherit;
+    }
+
     .wrapper {
         background-color: transparent;
         border: 1px solid grey;
@@ -145,7 +149,12 @@
     font-size: 150%;
     font-weight: 650;
     letter-spacing: .5px;
-    background: linear-gradient(to right, #333, #111, #444, #222);
+    background: linear-gradient(to right, #ccc, #eee, #ddd, #fff);
     background-clip: text;
     color: transparent;
+    transition: background .25s ease-in-out;
+
+    .scroll & {
+        background: linear-gradient(to right, #333, #111, #444, #222);
+    }
 }

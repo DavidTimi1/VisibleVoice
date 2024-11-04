@@ -172,7 +172,10 @@ function Service({data}){
             <FeatureEnabled>
                 <div style={{padding: "20px"}}>
                     <h4 className="flex mid-align gap-1 fw-500">
-                        <BgImg src={img} inline style={{borderRadius: "5px"}} />
+                        <div style={{backgroundColor: "black", padding: "5px", borderRadius: "50%"}}>
+                            <BgImg src={img} inline={true} />
+                        </div>
+                        <BgImg src={img} inline={true} />
                         <span> {title} </span>
                     </h4>
                     <p className="fw-200"> {descr} </p>
