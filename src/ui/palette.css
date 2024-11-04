@@ -9,7 +9,7 @@
     overflow: hidden auto;
     padding: 0;
     width: 100vw;
-    margin: 0px;
+    margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -157,7 +157,7 @@
 
     > * {
         flex: 0 0 auto;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
     }
 }
 
@@ -194,14 +194,14 @@
   border-radius: 1em;
 }
 
-.gap-10 {
-  gap: 10px;
-}
-
 @media screen and (max-width: 768px) {
   
     .md-flex-col {
       display: flex;
       flex-direction: column;
+    }
+
+    .md-fw {
+        width: 100% !important;
     }
   }

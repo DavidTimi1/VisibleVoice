@@ -1,6 +1,6 @@
 import { forwardRef, useEffect } from "react";
 import { FeatureEnabled, observer } from "./more";
-import { on } from "../helpers";
+import { on } from "./ui/helpers";
 
 
 
@@ -19,9 +19,9 @@ export const About = forwardRef((props, ref) => {
     }, [ref])
 
     return (
-        <div className="fw trans" ref={ref}>
+        <div className="fw trans box" ref={ref}>
             <FeatureEnabled>
-                <div id="about" className="flex-col pad" style={{padding: "75px 20px", justifyContent: "space-evenly"}}>
+                <div id="about" className="flex-col pad even-space">
                     <h3 className="fw lap-right up">
                         About <br></br> Us 
                     </h3>

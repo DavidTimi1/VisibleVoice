@@ -1,13 +1,12 @@
 
-import ttsImg from '../techfest/imgs/tts-img.png';
-import slImg from '../techfest/imgs/images.png';
+import ttsImg from '../imgs/tts-img.png';
+import slImg from '../imgs/images.png';
 
 import { useEffect, useRef, useState } from "react";
-import { Button } from "../techfest/buttons";
-import { IconBut } from "../learnxs/buttons";
-import { on } from "../helpers";
-import { ASL } from "../techfest/app";
-import { BgImg } from "../techfest/more";
+import { Button, IconBut } from "../ui/buttons";
+
+import { ASL } from "../app";
+import { BgImg } from "../more";
 
 // export const browserAPI = chrome || browser;
 export const supportTTS = window.speechSynthesis;
@@ -138,7 +137,7 @@ export function PopUpApp({close}){
 
     return (
         <div className="overlay" style={{background: "linear-gradient( to bottom, #00000080, #80808050, #00000080"}}>
-            <div className="main-pop margin" ref={myRef} style={{borderRadius: "1em"}}>
+            <div className="main-pop mx-auto" ref={myRef} style={{borderRadius: "1em"}}>
                 <div className="max" style={{padding: "20px"}}>
                     <First active={active === 0} next={next} />
                     <Second active={active === 1} next={next} />
