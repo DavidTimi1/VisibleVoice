@@ -5,7 +5,7 @@ import slImg from '../imgs/images.png';
 import { useEffect, useRef, useState } from "react";
 import { Button, IconBut } from "../ui/buttons";
 
-import { ASL } from "../app";
+import { ASL } from "../App";
 import { BgImg } from "../more";
 
 // export const browserAPI = chrome || browser;

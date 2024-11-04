@@ -3,7 +3,7 @@ import './footer.css';
 import { useEffect, useState, useRef, forwardRef } from "react";
 
 import { Button } from "./ui/buttons";
-import { apiHost, ProjectName } from './app';
+import { apiHost, ProjectName } from './App';
 import { Input, observer } from './more';
 import { on } from './ui/helpers';
 
