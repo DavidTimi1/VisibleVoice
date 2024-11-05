@@ -2,7 +2,6 @@
     --col: #ccc;
     --col2: white;
     background-color: transparent;
-    border-bottom: 1px solid transparent;
     /* backdrop-filter: blur(5px); */
     left: 0;
     position: fixed;
@@ -15,7 +14,7 @@
         --col: grey;
         --col2: black;
         background-color: var(--main-bg);
-        border-bottom: 1px solid var(--sec-col);
+        box-shadow: 0 1px 2px #444;
         width: 100%;
     }
 }
@@ -99,7 +98,8 @@
     width: 100vw;
 
     .scroll & {
-        background-color: inherit;
+        --col: #444;
+        background-color: var(--main-bg);
     }
 
     .wrapper {
@@ -149,12 +149,12 @@
     font-size: 150%;
     font-weight: 650;
     letter-spacing: .5px;
-    background: linear-gradient(to right, #ccc, #eee, #ddd, #fff);
+    background-image: linear-gradient(to right, #ccc, #eee, #ddd, #fff);
     background-clip: text;
     color: transparent;
     transition: background .25s ease-in-out;
 
     .scroll & {
-        background: linear-gradient(to right, #333, #111, #444, #222);
+        background-image: linear-gradient(to right, #333, #111, #444, #222);
     }
 }

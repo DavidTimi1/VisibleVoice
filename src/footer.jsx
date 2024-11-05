@@ -109,9 +109,10 @@ function FeedbackForm() {
                 })
             })
             .catch(err => {
+                console.log(err, err.message);
                 setState({
                     status: false,
-                    data: err.details ?? err.reason
+                    data: err.details ?? err.message
                 })
             })
     }
