@@ -1,2 +1,2 @@
-# VisualVoice
+# VisibleVoice
 Web accessibility inclusitivity
