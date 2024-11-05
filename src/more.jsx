@@ -6,7 +6,7 @@ import { useEffect, useRef, useState, forwardRef } from "react";
 
 import { readElement, signElement, speechSyn } from './webEx/popup';
 import { IconBut } from './ui/buttons';
-import { ASL } from './app';
+import { ASL } from './App';
 import { $, on, once, transitionEnd } from './ui/helpers';
 
 

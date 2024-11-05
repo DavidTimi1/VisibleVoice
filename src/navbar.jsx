@@ -2,8 +2,8 @@ import './navbar.css';
 import { IconBut } from './ui/buttons';
 import { useEffect, useState, useRef } from 'react';
 
-import { transitionEnd, once } from './ui/helpers.js';
-import { ProjectName } from './app.js';
+import { transitionEnd, once } from './ui/helpers';
+import { ProjectName } from './App';
 
 
 export default function Navbar({ scroll, goTo }) {

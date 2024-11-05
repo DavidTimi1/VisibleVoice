@@ -26,7 +26,7 @@ export const Home = forwardRef((props, ref) => {
                                 <div>
                                     <button className="mx-auto" onClick={openPopUp}>
                                         Get the Extension
-                                        <span className="sr-only"> Download the accesibility extension </span>
+                                        <span className="sr-only"> Download the accessibility extension </span>
                                     </button>
                                 </div>
                             </div>
