@@ -58,15 +58,16 @@ function FeedbackForm() {
 
     return (
         <form method="post" action={`${apiHost}/feedback/visualvoice`} className="feedform fw br-1 up" ref={formRef} onSubmit={handleSubmit}>
-            <div className='fw flex-col gap-2'>
+            <div className='fw flex-col gap-3'>
 
-                <div className={`alert ${state !== undefined ? sent ? "alert-success" : "alert-danger" : 'disappear'}`}>
-                    {
-                        state && state?.data
-                    }
-                </div>
+                {
+                    state && state?.data &&
+                    <div className={`alert ${state !== undefined ? sent ? "alert-success" : "alert-danger" : 'disappear'}`}>
+                        state.data
+                    </div>
+                }
 
-                <div className="flex md-flex-col fw gap-2">
+                <div className="flex md-flex-col fw gap-3">
                     <Input label="Name*" id="inputName" />
                     <Input label="Email*" type="email" id="inputEmail" />
                 </div>

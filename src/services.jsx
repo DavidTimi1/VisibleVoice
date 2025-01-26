@@ -35,7 +35,8 @@ const features = [
                 to offer seamless web navigation for the visually impaired.
                 Ensuring that every website is easy to explore.`,
         img: ttsBg,
-        alt: "image showing text-to-speech feature"
+        alt: "image showing text-to-speech feature",
+        ratio: "1/1"
     },
     {
         title: <> Customizable Fonts <br></br> for Enhanced Readability </>,
@@ -43,7 +44,8 @@ const features = [
                 With flexible scaling options, users can adjust text sizes across websites,
                 ensuring optimal optical comfort and enhancing readability and accessibility.`,
         img: customFontsBg,
-        alt: "image showing font customization"
+        alt: "image showing font customization",
+        ratio: "216/233"
     },
     {
         title: "Voice Command Navigation",
@@ -51,7 +53,8 @@ const features = [
                 This voice-activated controls enhances inclusitivity for individuals with mobility challenges,
                 providing a seamless and empowering web browsing experience.`,
         img: voiceNavBg,
-        alt: "image depicting voice command navigation"
+        alt: "image depicting voice command navigation",
+        ratio: "1/1"
     },
     {
         title: "Content Simpification",
@@ -60,7 +63,8 @@ const features = [
                 This is ideal for users with cognitive disabilities or struggle with large words.
                 This ensures all users regardless of their reading level can access online content with ease.`,
         img: simplyBg,
-        alt: "image depicting content simplification"
+        alt: "image depicting content simplification",
+        ratio: "311/162"
     },
     {
         title: <>Text-to-Sign Language <br></br> Translation </>,
@@ -68,7 +72,8 @@ const features = [
                 that converts written content into sign-language videos,
                 making web-pages more accessibke for the deaf and hard of hearing community.`,
         img: signBg,
-        alt: "image showing sign language"
+        alt: "image showing sign language",
+        ratio: "1/1"
     }
 ]
 
@@ -91,9 +96,9 @@ export const Services = forwardRef((props, ref) => {
     return (
         <div className="fw trans box" ref={ref}>
             <div className='up'>
-                <h3 className='left fs-3 fw-500 center-text'>
+                <h2 className='left fs-3 fw-500'>
                     Services We Render 
-                </h3>
+                </h2>
                 <div className='flex even-space gap-3' style={{flexWrap: "wrap"}} >
                     {
                         services.map( (service, index) => <Service key={index} data={service} /> )
@@ -127,7 +132,7 @@ export const Features = forwardRef((props, ref) => {
 
 
 function Feature({data, reverse}){
-    const {title, descr, img, alt} = data;
+    const {title, descr, img, alt, ratio} = data;
     const myRef = useRef(null);
     
     useEffect(() => {
@@ -147,11 +152,11 @@ function Feature({data, reverse}){
         
             <FeatureEnabled>
                 <div className="feat fw trans" ref={myRef}>
-                    <div className={ "fw flex-col gap-3 sdq mid-align" + (reverse ? " flex-rev" : '') } style={{padding: "10px 0"}}>
-                        <div className="fw hero-img left">
-                            <img src={img} alt={alt} className='br-1 fw' style={{objectFit: "cover"}} />
+                    <div className={ "fw flex-col gap-2 sdq mid-align" + (reverse ? " flex-rev" : '') }>
+                        <div className="fw hero-img left" style={{aspectRatio: ratio}}>
+                            <img src={img} alt={alt} className='fw' style={{borderRadius: "1rem 1rem 0 0", objectFit: "cover"}} />
                         </div>
-                        <div className="ter right flex-col gap-2">
+                        <div className="ter right flex-col gap-2" style={{padding: "10px"}}>
                             <h3 className="fw-600"> {title} </h3>
                             <p> {descr} </p>
                         </div>
@@ -171,13 +176,15 @@ function Service({data}){
         <div className="feat br-1 up serv">
             <FeatureEnabled>
                 <div style={{padding: "20px"}}>
-                    <h4 className="flex mid-align gap-1 fw-500">
-                        <div style={{backgroundColor: "black", padding: "5px", borderRadius: "50%"}}>
-                            <BgImg src={img} inline={true} />
+                    <h4 className="flex mid-align gap-2 fw-500">
+                        <div style={{backgroundColor: "black", borderRadius: "50%"}}>
+                            <div style={{margin: "10px"}}>
+                                <BgImg src={img} inline={true} />
+                            </div>
                         </div>
                         <span> {title} </span>
                     </h4>
-                    <p className="fw-200"> {descr} </p>
+                    <p className="fw-100"> {descr} </p>
                 </div>
             </FeatureEnabled>
         </div>
