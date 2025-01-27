@@ -57,7 +57,7 @@ function FeedbackForm() {
     const sent = state?.status;
 
     return (
-        <form method="post" action={`${apiHost}/feedback/visualvoice`} className="feedform fw br-1 up" ref={formRef} onSubmit={handleSubmit}>
+        <form method="post" action={`${apiHost}/feedback/visiblevoice`} className="feedform fw br-1 up" ref={formRef} onSubmit={handleSubmit}>
             <div className='fw flex-col gap-3'>
 
                 {
@@ -98,7 +98,7 @@ function FeedbackForm() {
 
         const fd = new FormData(target);
 
-        fetch(`${apiHost}/feedback/visualvoice`, {
+        fetch(`${apiHost}/feedback/visiblevoice`, {
             method: "post",
             body: fd
         }).then(res => res.json)
@@ -139,15 +139,19 @@ function Socials() {
 function DevCredits() {
 
     return (
-        <div className='mini-txt margin cred' style={{ padding: "10px" }}>
+        <div className='mini-txt mx-auto cred' style={{ padding: "10px" }}>
             <span>
-                Developed by <a href={githubLink} rel="noreferrer" target='_blank'> TimiDev </a> |
+                Developed by <a href={githubProfile} rel="noreferrer" target='_blank'> TimiDev </a> |
             </span>
-            <span>
-                | {ProjectName} &copy; {new Date().getFullYear()}
+            <span> 
+                Star on Github <a href={githubLink} rel="noreferrer" target='_blank'> here </a>
             </span>
+            <div>
+                {ProjectName} &copy; {new Date().getFullYear()}
+            </div>
         </div>
     )
 }
 
-const githubLink = "https://github.com/DavidTimi1";
+const githubLink = "https://github.com/DavidTimi1/VisibleVoice";
+const githubProfile = "https://github.com/DavidTimi1";
